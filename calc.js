@@ -74,10 +74,15 @@ function display(input) {
 
 function operatorKey(operator) {
 
-	
 	if(!isNaN(document.getElementById('result').value)) {
-		data.firstNum = Number(document.getElementById('result').value);
-		data.operator = operator;
+		if(data.firstNum !== document.getElementById('result').value && data.firstNum !== 0) {
+			data.operator = operator;
+		}
+		
+		else {
+			data.firstNum = Number(document.getElementById('result').value);
+			data.operator = operator;
+		}
 		
 		console.log('FIXME: data.firstNum: ' + data.firstNum);
 		console.log('FIXME: data.operator: ' + data.operator);
@@ -180,5 +185,3 @@ function getLastChar() {
 window.onload = function() {
   clearCalc();
 };
-
-
