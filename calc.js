@@ -166,13 +166,7 @@ function calculate(firstNum, operator, secondNum) {
 
 //Checks if a number is a floating point number or not.
 function isFloat(number) {
-	if(number % 1 !== 0) {
-		return true;
-	}
-	
-	else {
-		return false;
-	}
+	return number % 1 !== 0;
 }
 
 //Return the last character in the display
