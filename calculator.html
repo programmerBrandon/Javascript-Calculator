@@ -48,11 +48,17 @@
     border-radius: 10px;
   }
   
-  #btn {
+  .buttons {
     font-size:30px;
     padding: 5px;
     width: 100%;
   }
+  
+  /*.special-buttons {
+  	background-color: rgb(255,0,0);
+  	border-color: rgb(240,128,128);
+  	border-radius: 5px;
+  }*/
   
   .footer-text {
     font-family: arial;
@@ -68,45 +74,48 @@
     </tr>
   
     <tr>
-      <td> <input type="button" value="C" onclick="clearCalc()" id="btn"> </td>
-      <td> <input type="button" value="CE" onclick="clearEntry()" id="btn"> </td>
-      <td> <input type="button" value="&larr;" id="btn" onclick="backspace()" > </td>
+      <td> <input type="button" value="C" onclick="clearCalc()" class="buttons" id="clrBtn"> </td>
+      <td> <input type="button" value="CE" onclick="clearEntry()" class="buttons" id="clrEntryBtn"> </td>
+      <td> <input type="button" value="&larr;" onclick="backspace()" class="buttons" id="backBtn"> </td>
     </tr>
   
     <tr>
       <!-- display() function displays the value of clicked button -->
-      <td> <input type="button" value="1" onclick="display('1')" id="btn"> </td>
-      <td> <input type="button" value="2" onclick="display('2')" id="btn"> </td>
-      <td> <input type="button" value="3" onclick="display('3')" id="btn"> </td>
-      <td> <input type="button" value="&#247;" onclick="operatorKey('/')" id="btn"> </td>
+      <td> <input type="button" value="1" onclick="display('1')" class="buttons" id="oneBtn"> </td>
+      <td> <input type="button" value="2" onclick="display('2')" class="buttons" id="twoBtn"> </td>
+      <td> <input type="button" value="3" onclick="display('3')" class="buttons" id="threeBtn"> </td>
+      <td> <input type="button" value="&#247;" onclick="operatorKey('/')" class="buttons" id="divisionBtn"> </td>
     </tr>
   
      <tr>
-      <td> <input type="button" value="4" onclick="display('4')" id="btn"> </td>
-      <td> <input type="button" value="5" onclick="display('5')" id="btn"> </td>
-      <td> <input type="button" value="6" onclick="display('6')" id="btn"> </td>
-      <td> <input type="button" value="-" onclick="operatorKey('-')" id="btn"> </td>
+      <td> <input type="button" value="4" onclick="display('4')" class="buttons" id="fourBtn"> </td>
+      <td> <input type="button" value="5" onclick="display('5')" class="buttons" id="fiveBtn"> </td>
+      <td> <input type="button" value="6" onclick="display('6')" class="buttons" id="sixBtn"> </td>
+      <td> <input type="button" value="-" onclick="operatorKey('-')" class="buttons" id="subtractBtn"> </td>
     </tr>
     <tr>
-      <td> <input type="button" value="7" onclick="display('7')" id="btn"> </td>
-      <td> <input type="button" value="8" onclick="display('8')" id="btn"> </td>
-      <td> <input type="button" value="9" onclick="display('9')" id="btn"> </td>
-      <td> <input type="button" value="+" onclick="operatorKey('+')" id="btn"> </td>
+      <td> <input type="button" value="7" onclick="display('7')" class="buttons" id="sevenBtn"> </td>
+      <td> <input type="button" value="8" onclick="display('8')" class="buttons" id="eightBtn"> </td>
+      <td> <input type="button" value="9" onclick="display('9')" class="buttons" id="nineBtn"> </td>
+      <td> <input type="button" value="+" onclick="operatorKey('+')" class="buttons" id="addBtn"> </td>
     </tr>
   
     <tr>
-      <td> <input type="button" value="." onclick="display('.')" id="btn"> </td>
-      <td> <input type="button" value="0" onclick="display('0')" id="btn"> </td>
-      <td> <input type="button" value="=" onclick="callCalculate()" id="btn"> </td>
-      <td> <input type="button" value="x" onclick="operatorKey('*')" id="btn"> </td>
+      <td> <input type="button" value="." onclick="display('.')"  class="buttons" id="decimalBtn"> </td>
+      <td> <input type="button" value="0" onclick="display('0')" class="buttons" id="zeroBtn"> </td>
+      <td> <input type="button" value="=" onclick="callCalculate()" class="buttons" id="equalBtn"></td>
+      <td> <input type="button" value="x" onclick="operatorKey('*')" class="buttons" id="multiplyBtn"> </td>
     </tr>
     
   </table>
   
 </div>
-<p class="footer-text">Virtual Calculator - v1.1  |  &copy2023 <a href="https://nerdycoding.com" target="_blank">nerdycoding.com</a>
-  <br>
-  Updated: 8/24/23
-</p>
+<footer>
+	<p class="footer-text">Virtual Calculator - v2.0  |  
+		&copy2023 <a href="https://nerdycoding.com" target="_blank">nerdycoding.com</a>
+  		<br>
+ 		 Updated: 8/29/23
+	</p>
+</footer>
 </body>
 </html>
