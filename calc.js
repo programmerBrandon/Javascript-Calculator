@@ -2,7 +2,7 @@
 *Author: Brandon Green
 *Script Description: Basic Calculator
 *Original Script written 8/23/23
-*Version: 1.1
+*Version: 2.0
 */
 
 const data = {
@@ -177,5 +177,87 @@ function getLastChar() {
 
 //Clear the calculator whenever the page is loaded or refreshed
 window.onload = function() {
-  clearCalc();
+  clearCalc();  
 };
+
+//Trigger calculator buttons when specific keys are pressed.
+  document.addEventListener('keydown', (event) => {
+  	event.preventDefault();
+	let keyName = event.key;
+	console.log('keyName: ' + event.key);
+	
+	switch(keyName) {
+		case 'Backspace':
+			document.getElementById('backBtn').click();
+			break;
+		
+		case '1':
+			document.getElementById('oneBtn').click();
+			break;
+			
+		case '2':
+			document.getElementById('twoBtn').click();
+			break;
+			
+		case '3':
+			document.getElementById('threeBtn').click();
+			break;
+		
+		case '4':
+			document.getElementById('fourBtn').click();
+			break;
+			
+		case '5':
+			document.getElementById('fiveBtn').click();
+			break;
+			
+		case '6':
+			document.getElementById('sixBtn').click();
+			break;
+			
+		case '7':
+			document.getElementById('sevenBtn').click();
+			break;
+			
+		case '8':
+			document.getElementById('eightBtn').click();
+			break;
+		
+		case '9':
+			document.getElementById('nineBtn').click();
+			break;
+		
+		case '0':
+			document.getElementById('zeroBtn').click();
+			break;
+		
+		case '.':
+			document.getElementById('decimalBtn').click();
+			break;
+		
+		case '*':
+			document.getElementById('multiplyBtn').click();
+			break;
+			
+		case '/':
+			document.getElementById('divisionBtn').click();
+			break;
+			
+		case '+':
+			document.getElementById('addBtn').click();
+			break;
+			
+		case '-':
+			document.getElementById('subtractBtn').click();
+			break;
+			
+		case 'Enter':
+			document.getElementById('equalBtn').click();
+			break;
+			
+		case 'Clear':
+			document.getElementById('clrBtn').click();
+			break;	
+		}
+	});
+
