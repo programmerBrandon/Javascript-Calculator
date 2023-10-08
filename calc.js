@@ -2,10 +2,15 @@
 *Author: Brandon Green
 *Script Description: Basic Calculator
 *Original Script written 8/23/23
-*Version: 2.0
+*Script last modified: 10/7/23
+*Modification reason: Fixed bug that led to incorrect results if user attempted to do consecutive arithmetic operations without
+	pressing enter or the equals button. For example 1+1+1 would still result in 2 instead of 3. This has now been corrected.
+	Also started working on some code that will allow numbers to be formatted with commas in a future version, but this code
+	is incomplete at this time and does not work.
+*Version: 2.1
 */
 
-//Object to store and calculator inputs.
+//Object to store calculator inputs.
 const data = {
 	firstNum: 0,
 	operator: '',
@@ -66,16 +71,30 @@ function backspace() {
 
 function display(input) {
     //console.log('display(' + input + ') has been called!');
+    //let output = document.getElementById('result').value;
+    
+   // numberFormat = new Intl.NumberFormat('en-US');
+    //numberFormat.format(output);
+   // console.log("FIXME: output: " + output); //FIXME
     
     //Check if the display is set to 0, if it is replace it by the value of parameter.
     if(document.getElementById('result').value === '0') {
         //console.log('result is 0');
+       
         
         if(input === '.') {
+        	//output += input;
+        	//numberFormat.format(output);
+        	//console.log("FIXME: output: " + output); //FIXME
+        	
         	document.getElementById('result').value += input;
         }
         
         else {
+        //output = input;
+        //numberFormat.format(output);
+       // console.log("FIXME: output: " + output); //FIXME
+        
         document.getElementById('result').value = input;
         }   
     }
@@ -85,19 +104,29 @@ function display(input) {
     	if(input === '.' && document.getElementById('result').value.includes('.')) {
     		return;
     	}
+    	
+    	//output += input;
+    	//numberFormat.format(output);
     	document.getElementById('result').value += input;
     }
     
-    console.log('getLastChar(): ' + getLastChar());
+    //console.log('getLastChar(): ' + getLastChar());
 }
 
 function operatorKey(operator) {
 
 	if(!isNaN(document.getElementById('result').value)) {
+		//Allows for consecutive arithmetic operations without having to press enter or equals button (ex 1+1+1).
+		if(data.operator !== '') {
+			data.secondNum = Number(document.getElementById('result').value);
+			data.firstNum = calculate(data.firstNum, data.operator, data.secondNum);
+			data.operator = operator;
+		}
+
 		if(data.firstNum !== document.getElementById('result').value && data.firstNum !== 0) {
 			data.operator = operator;
 		}
-		
+
 		else {
 			data.firstNum = Number(document.getElementById('result').value);
 			data.operator = operator;
@@ -192,6 +221,11 @@ function isFloat(number) {
 function getLastChar() {
 	let resultsStr = document.getElementById('result').value;
 	return resultsStr.substring(resultsStr.length - 1, resultsStr.length);
+}
+
+//Return a string of numbers with all commas removed
+function removeCommas(numberStr) {
+	return numberStr.replaceAll(',', '');
 }
 
 //If key pressed is in keyMap, click the button associated with its ID.
